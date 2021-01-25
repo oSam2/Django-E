@@ -9,8 +9,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'store' %}">Projetinho</a>
+  <div class="header">
+  <div class="menu-bar">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <img src="{% static 'images/navbar_logo.png' %}" width="30" height="30" alt="">
+        <a class="navbar-brand" href="{% url 'store' %}">Loja</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,15 +26,17 @@
        
           </ul>
           <div class="form-inline my-2 my-lg-0">
-               <a href="#"class="btn btn-warning">Login</a>
+               <a href="#"class="btn btn-primary">Login</a>
                
                <a href="{% url 'cart' %}">
                   <img  id="cart-icon" src="{% static 'images/shopping_cart.png' %}">
               </a>
               <p id="cart-total">0</p>
-  
+            </div>
+            </>
           </div>
         </div>
+      </div>
       </nav>
   
        <div class="container">

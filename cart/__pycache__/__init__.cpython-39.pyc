@@ -1,4 +1,0 @@
-def __init__(self, *args, **kwargs):
-    super(SeuForm, self).__init__(*args, **kwargs)
-    self.models.fields['price'].localize = True
-    self.models.fields['price'].widget.is_localized = True

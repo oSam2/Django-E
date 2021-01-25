@@ -10,8 +10,8 @@
                 <br>
                 <table class="table">
                     <tr>
-                        <th><h5>Itens: <strong>5</strong></h5></th>
-                        <th><h5>Total: <strong>R$50</strong></h5></th>
+                        <th><h5>Itens: <strong>{{order.get_cart_items}}</strong></h5></th>
+                        <th><h5>Total: <strong>R${{order.get_cart_total|floatformat:2}}</strong></h5></th>
                         <th>
                             <a style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Proceder a compra </a>
                     </th>
@@ -27,26 +27,25 @@
                 <div style="flex:1"><strong>Quantidade</strong></div>
                 <div style="flex:1"><strong>Total</strong></div>
             </div>    
-     
+            {% for item in items %}
             <div class="cart-row">
-                <div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}"></div>                
-                <div style="flex:2"><p>Produto 1</p></div>
-                <div style="flex:1"><p>R$50</p></div>
+                <div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>                
+                <div style="flex:2">{{item.product.name}}</div>
+                <div style="flex:1">{{item.product.price|floatformat:2}}</div>
                 <div style="flex:1">
-                    <p class="quantity">2</p>
+                    <p class="quantity">{{item.quantity}}</p>
                     <div class="quantity">
                         <img class="chg-quantity" src="{% static 'images/arrow-up.png' %}">
                         <img class="chg-quantity" src="{% static 'images/arrow-down.png' %}">
 
                     </div>
                 </div>
-                <div style="flex:1"><p>R$30</p></div>
-            
+                <div style="flex:1">{{item.get_total}}</div>
             </div>
+            {% endfor %}
         </div>
         
     </div>
-
 </div>
 
 {% endblock content %}
