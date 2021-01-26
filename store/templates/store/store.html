@@ -8,7 +8,7 @@
             <div class="box-element product">
                 <h6><strong>{{product.name}}</strong></h6>
                 <hr>
-                <button class="btn btn-outline-secondary add-btn">Add ao carrinho</button>
+                <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add ao carrinho</button>
                 <a class="btn btn-outline-success" href="#">Ver</a>
                 <h4 style="display: inline-block;float:right">
                 R${{product.price|floatformat:2}}</h4>
@@ -18,4 +18,3 @@
         {% endfor %}
     </div>
 {% endblock content %}
-<!-- <img src= "{% static 'images/shopping_cart.png'%}"> -->
